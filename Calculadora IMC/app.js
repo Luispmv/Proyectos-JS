@@ -7,15 +7,12 @@ function createNewImage(path, width){
 
 
 function nav_bar(){
-    //Creando una etiqueta nav
     barra_navegacion = document.createElement("nav")
 
-    //Creando un anchor con sus atributos
     logo_anchor = document.createElement("a")
     logo_anchor.setAttribute("href", "#")
     logo_anchor.textContent = "Calculadora IMC"
 
-    //Creando una imagen
     logo_img = createNewImage("./images/weight.svg")
 
     barra_navegacion.append(logo_anchor)
@@ -25,7 +22,6 @@ function nav_bar(){
 }
 
 function form(){
-    //Creando las etiquetas
     formulario = document.createElement("form")
     labelPeso = document.createElement("label")
     inputPeso = document.createElement("input")
@@ -35,7 +31,6 @@ function form(){
     image_weight = weightImg()
     image_weight.className = "form-image"
 
-    //Creando los atributos
     labelPeso.setAttribute("for", "inputPeso")
     inputPeso.setAttribute("id", "inputPeso")
     inputPeso.setAttribute("placeholder", "Inserta tu peso en Kg")
@@ -50,7 +45,6 @@ function form(){
     botonEnviar.textContent = "Enviar"
 
 
-    //Añadiendo los elementos a form
     formulario.append(labelPeso, inputPeso, labelAltura, inputAltura, botonEnviar, image_weight)
     return formulario
 }
@@ -144,22 +138,18 @@ function get_results(){
 
     if (imc<18.5){
         console.log("Bajo peso")
-        // firstElement.textContent = "Bajo peso"
         imagen.src = "./images/bajo-peso.svg"
         span.textContent = `Bajo peso: ${imc}`
     }else if(imc>=18.5 && imc<=24.9){
         console.log("Saludable")
-        // firstElement.textContent = "Saludable"
         imagen.src = "./images/saludable.svg"
         span.textContent = `Saludable: ${imc}`
     }else if(imc>=25 && imc<=29.9){
         console.log("Sobrepeso")
-        // firstElement.textContent = "Sobrepeso"
         imagen.src = "./images/sobrepeso.svg"
         span.textContent = `Sobrepeso: ${imc}`
     }else if(imc>30){
         console.log("obesidad")
-        // firstElement.textContent = "Obesidad"
         imagen.src = "./images/obesidad.svg"
         span.textContent = `Obesidad: ${imc}`
     }else{
