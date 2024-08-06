@@ -74,7 +74,7 @@ button{
     margin-bottom: 1rem;
 }
 .form-image{
-    width: 150px;
+    width: 250px;
     align-self: center;
     display: none;
 }
@@ -87,6 +87,7 @@ button{
     align-self: center;
     display: grid;
     padding: 0.5rem;
+    gap: 15px;
 }
 .results-container header{
     display: flex;
@@ -98,6 +99,11 @@ button{
     width: 200px;
     place-self: center;
 }
+footer{
+    text-align: center;
+    font-size: 50px;
+}
+
 
 .weightMain{
     width: 250px;
@@ -116,6 +122,13 @@ button{
     }
     .form-image{
         display: block;
+    }
+    footer span{
+        display: block;
+        font-size: 60px;
+    }
+    .weightMain{
+        width: 300px;
     }
 }
 @media(min-width:1440px){
