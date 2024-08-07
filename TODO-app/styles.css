@@ -3,6 +3,7 @@
 * {
     --mainColor: #6482AD;
     --card-color: #7FA1C3;
+    font-family: "Inter", sans-serif;
 }
 
 body {
@@ -10,10 +11,10 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: bold;
     display: grid;
-}
-
-.hidden {
-    opacity: 0;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 nav {
@@ -42,6 +43,65 @@ nav a img {
     width: 35px;
 }
 
+
+.hidden {
+    display: none !important;
+}
+
+.nav-toggle{
+    width: 100%;
+    height: 100vh;
+    background-color:  var(--card-color);
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-toggle #close-aside{
+    align-self: end;
+    margin: 1rem;
+    background-color: var(--mainColor);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.nav-toggle form{
+    width: 85%;
+    align-self: center;
+    display: grid;
+    gap: 10px;
+}
+.nav-toggle form input{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background: white;
+    color: var(--mainColor);
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+.nav-toggle form input::placeholder{
+    color: var(--mainColor);
+}
+.nav-toggle form textarea{
+    background-color: white;
+    height: 50vh;
+    width: 100%;
+    color: var(--mainColor);
+    padding: 0;
+}
+.nav-toggle form button{
+    width: 100%;
+    height: 50px;
+    background: var(--mainColor);
+    border: none;
+    color: white;
+}
 main {
     display: grid;
     padding: 0.3rem;
@@ -64,6 +124,7 @@ main {
     border: none;
     width: 75px;
     height: 75px;
+    cursor: pointer;
 }
 
 .task-container {
@@ -102,6 +163,7 @@ header .options {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 button img {
@@ -125,6 +187,9 @@ textarea {
 @media(min-width: 768px){
     main{
         grid-template-columns: repeat(2,1fr);
+    }
+    .nav-toggle{
+        width: 50%;
     }
 }
 

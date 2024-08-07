@@ -12,6 +12,22 @@
         <a href=""><img src="./images/TODO-app.svg" alt=""></a>
         <button id="menu"><img src="./images/menu.svg" alt="menu"></button>
     </nav>
+    <aside class="nav-toggle hidden">
+        <button id="close-aside">
+            <img src="./images/close.svg" alt="">
+        </button>
+        <form>
+            <div>
+                <label for="tareaTitle"></label>
+                <input id="tareaTitle" type="text" name="tareaTitle" required placeholder="Nombre de la tarea">
+            </div>
+            <div>
+                <label for="textTarea"></label>
+                <textarea id="textTarea" name="textTarea" rows="4" required ></textarea>
+            </div>
+            <button type="submit">Crear</button>
+        </form>
+    </aside>
     <main>
         <div class="nuevo-todo-container">
             <button id="btn-new-task">

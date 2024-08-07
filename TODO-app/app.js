@@ -1,11 +1,13 @@
 const boton = document.querySelector("#btn-new-task")
 const main = document.querySelector("main")
+const asideToggle = document.querySelector(".nav-toggle")
 
 console.dir(boton)
 
-boton.addEventListener("click", (event)=>{
+boton.addEventListener("click", ()=>{
     console.log("Hola")
-    main.append(nueva_tarea())
+    // // main.append(nueva_tarea())
+    asideToggle.classList.toggle("hidden")
 })
 
 
