@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    --mainColor: #6482AD;
+    --card-color: #7FA1C3;
+}
+
+body {
+    background-color: var(--mainColor);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    display: grid;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+    align-items: center;
+    padding: 0.3rem;
+    width: 90%;
+    place-self: center;
+}
+
+nav a img {
+    width: 100px;
+}
+
+#menu {
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu img {
+    width: 35px;
+}
+
+main {
+    display: grid;
+    padding: 0.3rem;
+    gap: 20px;
+    width: 90%;
+    place-self: center;
+}
+
+.nuevo-todo-container {
+    background-color: var(--card-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.nuevo-todo-container button {
+    background-color: white;
+    border-radius: 100%;
+    border: none;
+    width: 75px;
+    height: 75px;
+}
+
+.task-container {
+    background-color: var(--card-color);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
+.task-container header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 25%;
+    align-self: center;
+}
+
+header h1 {
+    font-size: 25px;
+    color: white;
+}
+
+header .options {
+    display: flex;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.options button {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button img {
+    width: 30px;
+    height: 30px;
+}
+
+textarea {
+    width: 95%;
+    height: 70%;
+    align-self: center;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    resize: none;
+    background-color: var(--card-color);
+    font-family: "Inter", sans-serif;
+}
+
+@media(min-width: 768px){
+    main{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media(min-width: 1024px){
+    main{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media(min-width: 1440px){
+    main{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+@media(min-width: 1700px){
+    nav{
+        width: 1500px;
+    }
+    main{
+        width: 1500px;
+    }
+}
