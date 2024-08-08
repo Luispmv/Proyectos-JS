@@ -45,7 +45,9 @@ nav a img {
 
 
 .hidden {
-    display: none !important;
+    /* display: none !important; */
+    visibility: hidden;
+    opacity: 0;
 }
 
 .nav-toggle{
@@ -56,6 +58,7 @@ nav a img {
     right: 0;
     display: flex;
     flex-direction: column;
+    filter: drop-shadow(8px 4px 20px black);
 }
 
 .nav-toggle #close-aside{
@@ -66,6 +69,7 @@ nav a img {
     width: 50px;
     height: 50px;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 .nav-toggle form{
@@ -74,6 +78,14 @@ nav a img {
     display: grid;
     gap: 10px;
 }
+
+.nav-toggle form h1{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
 .nav-toggle form input{
     height: 50px;
     width: 100%;

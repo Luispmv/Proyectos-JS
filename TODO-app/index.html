@@ -16,17 +16,18 @@
         <button id="close-aside">
             <img src="./images/close.svg" alt="">
         </button>
-        <form>
+        <!-- <form>
+            <h1>Crear una nueva tarea</h1>
             <div>
                 <label for="tareaTitle"></label>
-                <input id="tareaTitle" type="text" name="tareaTitle" required placeholder="Nombre de la tarea">
+                <input id="tareaTitle" type="text" name="tareaTitle" required placeholder="Nombre de la tarea" autocomplete="off">
             </div>
             <div>
                 <label for="textTarea"></label>
                 <textarea id="textTarea" name="textTarea" rows="4" required ></textarea>
             </div>
             <button type="submit">Crear</button>
-        </form>
+        </form> -->
     </aside>
     <main>
         <div class="nuevo-todo-container">
@@ -38,9 +39,9 @@
             <header>
                 <h1>Titulo tarea</h1>
                 <div class="options">
-                    <button><img src="./images/pencil.svg" alt="edit"></button>
-                    <button><img src="./images/complete.svg" alt="complete"></button>
-                    <button><img src="./images/delete.svg" alt="delete"></button>
+                    <button name="edit"><img src="./images/pencil.svg" alt="edit"></button>
+                    <button name="complete"><img src="./images/complete.svg" alt="complete"></button>
+                    <button name="delete"><img src="./images/delete.svg" alt="delete"></button>
                 </div>
             </header>
             <textarea name="" id=""></textarea>
