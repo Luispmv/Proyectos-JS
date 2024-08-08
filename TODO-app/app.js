@@ -1,36 +1,77 @@
-const main = document.querySelector("main")
+// const main = document.querySelector("main")
+// const botonNewTask = document.querySelector("#btn-new-task")
 
-function toggleBarraLateral(){
-    const botonNewTask = document.querySelector("#btn-new-task")
-    const botonEdit = document.querySelector(".edit")
-    const barra_lateral = document.querySelector(".nav-toggle")
-    FormularioCrearTarea()
-    botonNewTask.addEventListener("click", (event)=>{
-        barra_lateral.classList.toggle("hidden")
-    })
-    const close = document.getElementById("close-aside")
-    close.addEventListener("click", ()=>{
-        barra_lateral.classList.toggle("hidden")
-    })
+const main = document.querySelector("main");
+const botonNewTask = document.querySelector("#btn-new-task");
+const barra_lateral = document.querySelector(".nav-toggle");
+
+const formularioCrear = FormularioCrearTarea();
+const formularioEditar = FormularioEditarTarea();
+barra_lateral.append(formularioCrear, formularioEditar);
+
+
+formularioEditar.classList.add("hidden");
+
+function toggleBarraLateral() {
+    barra_lateral.classList.toggle("hidden");
+    
+    // Ensure create form is shown and edit form is hidden
+    formularioCrear.classList.remove("hidden");
+    formularioEditar.classList.add("hidden");
 }
-toggleBarraLateral()
+
+botonNewTask.addEventListener("click", toggleBarraLateral);
+
+const close = document.getElementById("close-aside");
+close.addEventListener("click", () => {
+    barra_lateral.classList.toggle("hidden");
+});
+
+// function toggleBarraLateral(){
+//     const botonNewTask = document.querySelector("#btn-new-task")
+//     const barra_lateral = document.querySelector(".nav-toggle")
+
+//     barra_lateral.append(FormularioCrearTarea(), FormularioEditarTarea())
+//     console.log(barra_lateral.childElementCount)
+//     barra_lateral.children[2].classList.toggle("hidden")
+    
+    
+//     botonNewTask.addEventListener("click", (event)=>{
+//         barra_lateral.classList.toggle("hidden")
+//     })
+//     const close = document.getElementById("close-aside")
+//     close.addEventListener("click", ()=>{
+//         barra_lateral.classList.toggle("hidden")
+//     })
+// }
+// toggleBarraLateral()
 
 function FormularioCrearTarea(){
     const nuevo_formulario = crearFormulario("Crear nueva Tarea", "Crear tarea")
+    nuevo_formulario.className = "create"
     const barra_lateral = document.querySelector(".nav-toggle")
-    barra_lateral.append(nuevo_formulario)
     const tituloTarea = nuevo_formulario.querySelector("input")
     const textArea = nuevo_formulario.querySelector("textarea")
+  
+
+    const new_todo_container = document.querySelector(".nuevo-todo-container")
     nuevo_formulario.addEventListener("submit", (event)=>{
         event.preventDefault()
         const nuevaTarea = contenedorTarea(tituloTarea.value, textArea.value)
-        main.append(nuevaTarea)
+        // main.append(nuevaTarea)
+        main.insertBefore(nuevaTarea, new_todo_container.nextSibling)
         barra_lateral.classList.toggle("hidden")
         nuevo_formulario.reset()
     })
     return nuevo_formulario
 }
 
+function FormularioEditarTarea(){
+    const nuevo_formulario = crearFormulario("Editar nueva Tarea", "Crear tarea")
+    nuevo_formulario.className = "edit"
+    nuevo_formulario.reset()
+    return nuevo_formulario
+}
 
 
 function contenedorTarea(value, value2){
@@ -55,6 +96,8 @@ function contenedorTarea(value, value2){
     deleteButton.name = "delete"
 
     editButton.className = "edit"
+    checkButton.className = "complete"
+    deleteButton.className = "delete"
 
     const editButtonImage = crearImagen("./images/pencil.svg")
     const checkButtonImage = crearImagen("./images/complete.svg")
@@ -64,8 +107,18 @@ function contenedorTarea(value, value2){
     checkButton.append(checkButtonImage)
     deleteButton.append(deleteButtonImage)
 
-    editButton.addEventListener("click",()=>{
+    // editButton.addEventListener("click" ,toggleBarraLateral())
+
+    editButton.addEventListener("click", ()=>{
         console.log(editButton.name)
+        const barra_lateral = document.querySelector(".nav-toggle")
+        barra_lateral.classList.toggle("hidden")
+        // barra_lateral.removeChild(barra_lateral.children[1])
+        console.dir(barra_lateral.children[1])
+        if (barra_lateral.children[1].classList.contains("create")){
+            barra_lateral.children[2].classList.remove("hidden")
+            barra_lateral.children[1].classList.add("hidden")
+        }
     })
 
     checkButton.addEventListener("click",()=>{
