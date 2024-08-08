@@ -1,36 +1,27 @@
 const main = document.querySelector("main")
 const botonNewTask = document.querySelector("#btn-new-task")
+const barra_lateral = document.querySelector(".nav-toggle")
+const close = document.getElementById("close-aside")
 
-// const FormularioCrear = FormularioCrearTarea()
-// const FormularioEditarTarea = FormularioEditarTarea()
+
 const formularioCrear = FormularioCrearTarea()
 const formularioEditar = FormularioEditarTarea()
-formularioEditar.classList.add("hidden")
 
 
-function toggleBarraLateral(){
-    const botonNewTask = document.querySelector("#btn-new-task")
-    const barra_lateral = document.querySelector(".nav-toggle")
-
-    
-
+function abrirBarraLateral(){
     barra_lateral.append(formularioCrear, formularioEditar)
+    barra_lateral.classList.toggle("hidden")
 
-    // formularioEditar.classList.add("hidden")
-    // console.log(barra_lateral.childElementCount)
-    // barra_lateral.children[2].classList.toggle("hidden")
-    
     formularioCrear.classList.remove("hidden")
-    
-    botonNewTask.addEventListener("click", (event)=>{
-        barra_lateral.classList.toggle("hidden")
-    })
-    const close = document.getElementById("close-aside")
-    close.addEventListener("click", ()=>{
-        barra_lateral.classList.add("hidden")
-    })
+    formularioEditar.classList.add("hidden")
 }
-toggleBarraLateral()
+
+function cerrarBarraLateral(){
+    barra_lateral.classList.toggle("hidden")
+}
+
+botonNewTask.addEventListener("click", abrirBarraLateral)
+close.addEventListener("click", cerrarBarraLateral)
 
 function FormularioCrearTarea(){
     const nuevo_formulario = crearFormulario("Crear nueva Tarea", "Crear tarea")
@@ -53,8 +44,15 @@ function FormularioCrearTarea(){
 }
 
 function FormularioEditarTarea(){
-    const nuevo_formulario = crearFormulario("Editar nueva Tarea", "Editar tarea")
+    const nuevo_formulario = crearFormulario("Editar Tarea", "Editar tarea")
     nuevo_formulario.className = "edit"
+    nuevo_formulario.addEventListener("submit", (event)=>{
+        event.preventDefault()
+        console.log("rfervrefeferf")
+        barra_lateral.classList.toggle("hidden")
+
+    })
+
     nuevo_formulario.reset()
     return nuevo_formulario
 }
