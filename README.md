@@ -10,7 +10,8 @@ Este proyecto fue creado para practicar conocimientos sobre manipulacion del DOM
 
 ![App Screenshot](https://i.imgur.com/0AoENJU.png)
 
-# TODO-app
+# [Visita TODO-app](https://proyectos-js-six.vercel.app/)
+
 Este proyecto fue creado para practicar conocimientos sobre manipulacion del DOM en Javascript.
 
 ## Vista del proyecto
