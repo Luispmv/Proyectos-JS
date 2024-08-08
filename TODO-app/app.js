@@ -46,16 +46,28 @@ function FormularioCrearTarea(){
 function FormularioEditarTarea(){
     const nuevo_formulario = crearFormulario("Editar Tarea", "Editar tarea")
     nuevo_formulario.className = "edit"
+    //Elementos del formulario
+    const input = nuevo_formulario.querySelector("input")
+    const textarea = nuevo_formulario.querySelector("textarea")
+
     nuevo_formulario.addEventListener("submit", (event)=>{
+        //Elementos del contenedor a cambiar 
+        const container = document.querySelector(".task-container")
+        const tituloTask = container.querySelector("h1")
+        const descriptionTask = container.querySelector("textarea")
+
+        tituloTask.textContent = input.value
+        descriptionTask.textContent = textarea.value
+
         event.preventDefault()
-        console.log("rfervrefeferf")
+        // console.log(event.target)
         barra_lateral.classList.toggle("hidden")
-
+        nuevo_formulario.reset()
     })
-
-    nuevo_formulario.reset()
     return nuevo_formulario
 }
+
+
 
 
 function contenedorTarea(value, value2){
@@ -98,7 +110,7 @@ function contenedorTarea(value, value2){
         const barra_lateral = document.querySelector(".nav-toggle")
         barra_lateral.classList.toggle("hidden")
         // barra_lateral.removeChild(barra_lateral.children[1])
-        console.dir(barra_lateral.children[1])
+        // console.dir(barra_lateral.children[1])
         if (barra_lateral.children[1].classList.contains("create")){
             barra_lateral.children[2].classList.remove("hidden")
             barra_lateral.children[1].classList.add("hidden")
