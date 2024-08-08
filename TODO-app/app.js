@@ -2,11 +2,15 @@ const main = document.querySelector("main")
 const botonNewTask = document.querySelector("#btn-new-task")
 const barra_lateral = document.querySelector(".nav-toggle")
 const close = document.getElementById("close-aside")
+const nav = document.querySelector("nav")
+const tareas_completas = []
+const tareas_eliminadas = []
 
+const deletePop = document.querySelector(".deleted-task")
+const completedPop = document.querySelector(".completed-task")
 
 const formularioCrear = FormularioCrearTarea()
 const formularioEditar = FormularioEditarTarea()
-
 
 function abrirBarraLateral(){
     barra_lateral.append(formularioCrear, formularioEditar)
@@ -36,7 +40,9 @@ function FormularioCrearTarea(){
         event.preventDefault()
         const nuevaTarea = contenedorTarea(tituloTarea.value, textArea.value)
         // main.append(nuevaTarea)
+        // almacenarLocalmente(nuevaTarea)
         main.insertBefore(nuevaTarea, new_todo_container.nextSibling)
+        // main.append(nuevaTarea)
         barra_lateral.classList.toggle("hidden")
         nuevo_formulario.reset()
     })
@@ -79,6 +85,19 @@ function contenedorTarea(value, value2){
     let textArea = document.createElement("textarea")
     textArea.textContent = value2
 
+    //Creando popovers
+    const completePop = document.createElement("section")
+    const deletePop = document.createElement("section")
+    completePop.className = "complete-pop"
+    deletePop.className = "delete-pop"
+
+    const checkImage = crearImagen("./images/complete.svg")
+    const deleteImage = crearImagen("./images/delete.svg")
+
+    completePop.append(checkImage)
+    deletePop.append(deleteImage)
+
+    //Creando popovers
 
     const options = document.createElement("div")
     options.className = "options"
@@ -118,22 +137,49 @@ function contenedorTarea(value, value2){
     })
 
     checkButton.addEventListener("click",()=>{
-        console.log(checkButton.name)
+        console.log(checkButton.name)     
+        showCompletePop()
     })
+
     deleteButton.addEventListener("click", ()=>{
         console.log(deleteButton.name)
+        showDeletedPop()
     })
 
     options.append(editButton, checkButton, deleteButton)
 
     headerTask.append(tituloTarea, options)
 
-    taskContainer.append(headerTask, textArea)
+    taskContainer.append(headerTask, textArea, completePop, deletePop)
 
 
     return taskContainer
 }
 
+function showCompletePop(){
+    const task = document.querySelector(".task-container")
+    const completePop = document.querySelector(".complete-pop")
+    completePop.style.display = "flex"
+    setTimeout(() => {
+        completePop.style.display = "none"
+        task.remove()
+    }, 1000);
+    // task.remove()
+    tareas_completas.push(task)
+    console.log(tareas_completas)
+}
+
+function showDeletedPop(){
+    const task = document.querySelector(".task-container")
+    const deletePop = document.querySelector(".delete-pop")
+    deletePop.style.display = "flex"
+    setTimeout(() => {
+        deletePop.style.display = "none"
+        task.remove()
+    }, 1000);
+    tareas_eliminadas.push(task)
+    console.log(tareas_eliminadas)
+}
 
 function crearImagen(path){
     nueva_imagen = document.createElement("img")
@@ -148,6 +194,7 @@ function crearFormulario(encabezado, textButton){
     const h1 = document.createElement("h1")
     const div1 = document.createElement("div")
     const div2 = document.createElement("div")
+    div2.className = "container-text"
     const label_input = document.createElement("label")
     const inputTareaTitle = document.createElement("input")
     const label_text = document.createElement("label")
