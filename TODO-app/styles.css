@@ -32,6 +32,10 @@ nav a img {
     width: 100px;
 }
 
+nav #menu{
+    display: none;
+}
+
 #menu {
     background: none;
     border: none;
