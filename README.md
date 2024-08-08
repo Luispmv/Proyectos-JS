@@ -15,4 +15,4 @@ Este proyecto fue creado para practicar conocimientos sobre manipulacion del DOM
 
 ## Vista del proyecto
 
-![App Screenshot](https://i.imgur.com/X3uFc75_d.jpg?maxwidth=520&shape=thumb&fidelity=high)
+![App Screenshot](https://i.imgur.com/6JIyMRH.png)
