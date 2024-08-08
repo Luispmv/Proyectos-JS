@@ -1,5 +1,8 @@
 const main = document.querySelector("main")
 
+// const formularioCrear = FormularioCrearTarea()
+// const FormularioEditar = 
+
 function toggleBarraLateral(){
     const botonNewTask = document.querySelector("#btn-new-task")
     const botonEdit = document.querySelector(".edit")
