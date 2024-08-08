@@ -1,22 +1,33 @@
 const main = document.querySelector("main")
 const botonNewTask = document.querySelector("#btn-new-task")
 
+// const FormularioCrear = FormularioCrearTarea()
+// const FormularioEditarTarea = FormularioEditarTarea()
+const formularioCrear = FormularioCrearTarea()
+const formularioEditar = FormularioEditarTarea()
+formularioEditar.classList.add("hidden")
+
 
 function toggleBarraLateral(){
     const botonNewTask = document.querySelector("#btn-new-task")
     const barra_lateral = document.querySelector(".nav-toggle")
 
-    barra_lateral.append(FormularioCrearTarea(), FormularioEditarTarea())
-    console.log(barra_lateral.childElementCount)
-    barra_lateral.children[2].classList.toggle("hidden")
     
+
+    barra_lateral.append(formularioCrear, formularioEditar)
+
+    // formularioEditar.classList.add("hidden")
+    // console.log(barra_lateral.childElementCount)
+    // barra_lateral.children[2].classList.toggle("hidden")
+    
+    formularioCrear.classList.remove("hidden")
     
     botonNewTask.addEventListener("click", (event)=>{
         barra_lateral.classList.toggle("hidden")
     })
     const close = document.getElementById("close-aside")
     close.addEventListener("click", ()=>{
-        barra_lateral.classList.toggle("hidden")
+        barra_lateral.classList.add("hidden")
     })
 }
 toggleBarraLateral()
@@ -42,7 +53,7 @@ function FormularioCrearTarea(){
 }
 
 function FormularioEditarTarea(){
-    const nuevo_formulario = crearFormulario("Editar nueva Tarea", "Crear tarea")
+    const nuevo_formulario = crearFormulario("Editar nueva Tarea", "Editar tarea")
     nuevo_formulario.className = "edit"
     nuevo_formulario.reset()
     return nuevo_formulario
