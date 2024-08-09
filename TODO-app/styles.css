@@ -59,7 +59,7 @@ nav #menu{
     width: 100%;
     height: 100vh;
     background-color:  var(--card-color);
-    position: absolute;
+    position: fixed;
     right: 0;
     display: flex;
     flex-direction: column;
