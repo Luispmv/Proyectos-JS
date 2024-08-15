@@ -42,6 +42,9 @@ class navBar extends HTMLElement{
     estilizarBarra(){
         return `
         <style>
+            :host{
+                display:grid
+            }
             nav{
                 display: flex;
                 justify-content: space-between;
@@ -59,6 +62,10 @@ class navBar extends HTMLElement{
                 padding: 10px;
                 width: 90px;
                 font-weight: 600;
+            }
+            .menu{
+                display: flex;
+                justify-content: end;
             }
             .aside1-desktop{
                 display: none;

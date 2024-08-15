@@ -3,3 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: grid;
+}
+hero-section{
+    --font-color: black;
+    --btnOnebg: #CFEB00;
+}
+
+@media(min-width:768px){
+    hero-section{
+        --widthHero: 85%
+    }
+}
+@media(min-width:1024px){
+    hero-section{
+        --widthHero: 75%
+    }
+}
+@media(min-width:1024px){
+    hero-section{
+        --widthHero: 1000px
+    }
+}
