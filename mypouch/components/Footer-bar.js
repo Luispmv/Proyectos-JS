@@ -37,12 +37,18 @@ class footerbar extends HTMLElement{
     estilos(){
         return `
         <style>
+            :host{
+                display:flex;
+                justify-content: center;
+                --footer-width: 100%;
+            }
             footer{
                 display: flex;
                 justify-content: space-between;
                 font-family: sans-serif;
                 padding: 1rem;
                 color: #999A97;
+                width: var(--footer-width)
             }
             footer span{
                 display: flex;

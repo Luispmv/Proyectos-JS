@@ -32,6 +32,7 @@ class popMenu extends HTMLElement{
         return `
         <style>
         .pop-navigation{
+            z-index: 1;
             background: rgb(255, 255, 255);
             position: absolute;
             top: 0;

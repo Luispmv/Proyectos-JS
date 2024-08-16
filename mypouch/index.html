@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-component APP</title>
     <link rel="stylesheet" href="./styles.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <barra-navegacion
@@ -16,16 +17,23 @@
         fifth="Login"
         sixth="Explore">
     </barra-navegacion>
-    <hero-section 
-    keyword1="Innovation"
-    keyword2="Security"
-    keyword3="Empowerment"
-    keyword4="Simplicity"
-    phrase="Your Gateway to Financial Excellence Innovate, Invest, Grow"
-    description="Your comprehensive Fintech Partner, Transforming Financial Dreams into Reality with Secure, Empowering Solutions. Ready to Elevate Your Finances?"
-    butonContent ="Explore"
-    butonContent2 = "Read More"
-    ></hero-section>
+    <background-square bgimage="./images/bg-puch.png">
+        <hero-section slot="up"
+        keyword1="Innovation"
+        keyword2="Security"
+        keyword3="Empowerment"
+        keyword4="Simplicity"
+        phrase="Your Gateway to Financial Excellence Innovate, Invest, Grow"
+        description="Your comprehensive Fintech Partner, Transforming Financial Dreams into Reality with Secure, Empowering Solutions. Ready to Elevate Your Finances?"
+        butonContent ="Explore"
+        butonContent2 = "Read More">
+        </hero-section>
+        <footer-bar slot="down"
+        year="2024"
+        company="mypouch">
+        </footer-bar>
+        <img slot="image" src="./images/cards.png" alt="">
+    </background-square>
     <script type="module" src="./app.js"></script>
 </body>
 </html>
