@@ -17,3 +17,9 @@ Este proyecto fue creado para practicar conocimientos sobre manipulacion del DOM
 ## Vista del proyecto
 
 ![App Screenshot](https://i.imgur.com/YcSOA7S.png)
+
+# Pagina hecha con componentes nativos JS
+
+Este proyecto fue creado a partir de web components creados con javascript nativo, utilizando la clase HTMLElement
+
+![App Screenshot](https://i.imgur.com/tdsiyy9.png)
