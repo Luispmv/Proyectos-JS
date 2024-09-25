@@ -23,3 +23,10 @@ Este proyecto fue creado para practicar conocimientos sobre manipulacion del DOM
 Este proyecto fue creado a partir de web components creados con javascript nativo, utilizando la clase HTMLElement
 
 ![App Screenshot](https://i.imgur.com/tdsiyy9.png)
+
+
+# Pagina con funciones asincronas
+
+Este proyecto utiliza funciones asincronas para poder consumir informacion de videos, usando rapidApi
+
+![App Screenshot](https://i.imgur.com/mmPC2o9.png)
