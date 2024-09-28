@@ -1,56 +1,15 @@
-// Obtener el clima actual mediante el nombre de la ciudad
+// Ejemplo de como consumiremos la api de planetas para poder mostrarlo en un layout
+const planeta = 7
+const url = `https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/${planeta}`
 
-// Obtenemos la informacion climatica de una ciudad mediante la modificacion de esta url
-
-//Ejemplo de una respuesta 
-// {
-//     coord: { lon: -99.1277, lat: 19.4285 },
-//     weather: [
-//       {
-//         id: 501,
-//         main: 'Rain',
-//         description: 'lluvia moderada',
-//         icon: '10d'
-//       }
-//     ],
-//     base: 'stations',
-//     main: {
-//       temp: 59.95,
-//       feels_like: 59.74,
-//       temp_min: 59.95,
-//       temp_max: 62.11,
-//       pressure: 1013,
-//       humidity: 87,
-//       sea_level: 1013,
-//       grnd_level: 761
-//     },
-//     visibility: 8047,
-//     wind: { speed: 8.05, deg: 80 },
-//     rain: { '1h': 0.51 },
-//     clouds: { all: 100 },
-//     dt: 1727377957,
-//     sys: {
-//       type: 2,
-//       id: 47729,
-//       country: 'MX',
-//       sunrise: 1727353574,
-//       sunset: 1727396940
-//     },
-//     timezone: -21600,
-//     id: 3530597,
-//     name: 'Mexico City',
-//     cod: 200
-//   }
+const main = document.getElementById("content")
 
 
-
-const ciudad = "Londres"
-const url = `https://open-weather13.p.rapidapi.com/city/${ciudad}/ES/`
 const options = {
 	method: 'GET',
 	headers: {
 		'x-rapidapi-key': '8def248eb2msh2560450ba75fe01p10366bjsn318d3ff02799',
-		'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+		'x-rapidapi-host': 'planets-info-by-newbapi.p.rapidapi.com'
 	}
 };
 
@@ -60,21 +19,23 @@ async function obtenerDatos(urlApi, metodo) {
     return datos
 }
 
+function planetItem(source){
+    image = document.createElement("img")
+    image.src = source
+    return image
+}
+
+let nombre, description, imgsrc, imgalt
 obtenerDatos(url, options)
     .then(datos => {
-        console.log(datos["coord"])
-        console.log(datos["weather"])
-        console.log(datos["main"])
-        console.log(datos["name"])
-        console.log(datos["sys"]["country"])
+        nombre = datos["name"]
+        description = datos["description"]
+        imgsrc = datos["imgSrc"]["img"]
+        imgalt = datos["imgSrc"]["imgDescription"]
+        return datos
+    })
+    .then(()=>{
+        let call = planetItem(imgsrc)
+        main.append(call)
     })
     .catch(error => console.log(error))
-
-
-
-// Aqui utilizaremos la API de Google imagenes para traernos las banderas de los paises
-
-
-
-
-
