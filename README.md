@@ -30,3 +30,10 @@ Este proyecto fue creado a partir de web components creados con javascript nativ
 Este proyecto utiliza funciones asincronas para poder consumir informacion de videos, usando rapidApi
 
 ![App Screenshot](https://i.imgur.com/mmPC2o9.png)
+
+# Planetas App
+
+En este proyecto utilizamos funciones asincronas y promesas para poder consumir una api sobre planetas
+![App Screenshot](https://i.imgur.com/6FFwQpC.png)
+
+
