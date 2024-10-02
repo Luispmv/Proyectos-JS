@@ -6,26 +6,77 @@
     <title>Planet App</title>
 </head>
 <style>
-    @font-face {
-        font-family: 'Jaro';
-        src: url("Jaro.ttf")
-    }
-
     body{
         background-color: black;
+        display: grid;
     }
-    h1{
+    .main_h1{
+        font-size: 3rem;
         text-align: center;
+        font-family: sans-serif;
         color: white;
-        font-family: "Jaro";
-        font-size: 140px;
     }
-    img{
-        width: 200px;
+    #content{
+        display: grid;
+        gap: 10px;
+    }
+    .planets{
+        display: grid;
+        width: 100%;
+        color: white;
+        background-color: black;
+        border: solid white;
+        place-self: center;
+    }
+    .planets img{
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    }
+    .planets h1{
+        font-family: sans-serif;
+        margin: 0;
+        text-align: center;
+    }
+    .planets article{
+        padding: 1rem;
+        height: 100px;
+        overflow: auto;
+    }
+    .planets article::-webkit-scrollbar{
+        display: none;
+    }
+    .planets p{
+        font-family: sans-serif;
+        margin: 0;
+        text-align: justify;
+    }
+    @media(min-width:768px){
+        .main_h1{
+            font-size: 100px;
+        }
+        #content{
+            width: 90%;
+            display: flex;
+            overflow: auto;
+            place-self: center;
+            gap: 30px;
+        }
+        #content::-webkit-scrollbar{
+            display: none;
+        }
+        .planets{
+            /* width: 25%; */
+        }
+        .planets img{
+            width: 500px;
+            height: 500px;
+            place-self: center;
+        }
     }
 </style>
 <body>
-    <h1>Planetas App</h1>
+    <h1 class="main_h1">Planetas App</h1>
     <main id="content">
 
     </main>

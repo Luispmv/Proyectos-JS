@@ -1,41 +1,53 @@
-// Ejemplo de como consumiremos la api de planetas para poder mostrarlo en un layout
-const planeta = 7
-const url = `https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/${planeta}`
+const url = `https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/`;
 
-const main = document.getElementById("content")
-
+const main = document.getElementById("content");
 
 const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '8def248eb2msh2560450ba75fe01p10366bjsn318d3ff02799',
-		'x-rapidapi-host': 'planets-info-by-newbapi.p.rapidapi.com'
-	}
+    method: 'GET',
+    headers: {
+        'x-rapidapi-key': '8def248eb2msh2560450ba75fe01p10366bjsn318d3ff02799',
+        'x-rapidapi-host': 'planets-info-by-newbapi.p.rapidapi.com'
+    }
 };
 
 async function obtenerDatos(urlApi, metodo) {
-    const response = await fetch(urlApi, metodo)
-    const datos = await response.json()
-    return datos
+    const response = await fetch(urlApi, metodo);
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const datos = await response.json();
+    return datos;
 }
 
-function planetItem(source){
-    image = document.createElement("img")
-    image.src = source
-    return image
+function planetItem(source, name, text) {
+    const container = document.createElement("div");
+    const image = document.createElement("img");
+    const h1 = document.createElement("h1");
+    const p_label = document.createElement("p");
+    const article = document.createElement("article")
+
+    h1.textContent = name;
+    image.src = source;
+    image.alt = name; 
+    p_label.textContent = text;
+
+
+    container.appendChild(image);
+    container.appendChild(h1);
+    article.appendChild(p_label);
+    container.appendChild(article)
+
+    container.className = "planets";
+
+    return container;
 }
 
-let nombre, description, imgsrc, imgalt
 obtenerDatos(url, options)
-    .then(datos => {
-        nombre = datos["name"]
-        description = datos["description"]
-        imgsrc = datos["imgSrc"]["img"]
-        imgalt = datos["imgSrc"]["imgDescription"]
-        return datos
+    .then(planets => {
+        planets.forEach(planet => {
+            const { name, description, imgSrc: { img, imgDescription } } = planet;
+            let call = planetItem(img, name, description);
+            main.append(call);
+        });
     })
-    .then(()=>{
-        let call = planetItem(imgsrc)
-        main.append(call)
-    })
-    .catch(error => console.log(error))
+    .catch(error => console.log(`Error fetching data: ${error}`));
